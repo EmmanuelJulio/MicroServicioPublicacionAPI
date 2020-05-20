@@ -6,10 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\API-PUBLICACION\API-PUBLICACION.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="QUERY\" />
   </ItemGroup>
 
