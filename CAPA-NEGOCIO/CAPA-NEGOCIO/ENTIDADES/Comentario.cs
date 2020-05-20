@@ -4,7 +4,10 @@ using System.Text;
 
 namespace CAPA_NEGOCIO.ENTIDADES
 {
-    class Comentario
+   public class Comentario
     {
+        public int Id { get; set; }
+        public string Comentarios{ get; set;}
+        public DateTime Fecha { get; set;}
     }
 }
