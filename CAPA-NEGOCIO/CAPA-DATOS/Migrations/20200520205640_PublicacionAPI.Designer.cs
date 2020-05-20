@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CAPA_DATOS.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200520144147_init")]
-    partial class init
+    [Migration("20200520205640_PublicacionAPI")]
+    partial class PublicacionAPI
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,22 +39,57 @@ namespace CAPA_DATOS.Migrations
                     b.ToTable("Comentarios");
                 });
 
-            modelBuilder.Entity("CAPA_NEGOCIO.ENTIDADES.Publicacion", b =>
+            modelBuilder.Entity("CAPA_NEGOCIO.ENTIDADES.ComentarioPublicacion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Id_Comentario")
+                    b.Property<int?>("ComentarioNavigatorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Id_Producto")
+                    b.Property<int>("ComentariosID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PublicacionID")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ComentarioNavigatorId");
+
+                    b.HasIndex("PublicacionID");
+
+                    b.ToTable("ComentarioPublicacion");
+                });
+
+            modelBuilder.Entity("CAPA_NEGOCIO.ENTIDADES.Publicacion", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProductoID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
                     b.ToTable("Publicaciones");
+                });
+
+            modelBuilder.Entity("CAPA_NEGOCIO.ENTIDADES.ComentarioPublicacion", b =>
+                {
+                    b.HasOne("CAPA_NEGOCIO.ENTIDADES.Comentario", "ComentarioNavigator")
+                        .WithMany()
+                        .HasForeignKey("ComentarioNavigatorId");
+
+                    b.HasOne("CAPA_NEGOCIO.ENTIDADES.Publicacion", "PublicacionNavigator")
+                        .WithMany()
+                        .HasForeignKey("PublicacionID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

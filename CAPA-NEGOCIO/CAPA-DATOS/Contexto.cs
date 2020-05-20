@@ -11,6 +11,8 @@ namespace CAPA_DATOS
         public DbSet<Comentario> Comentarios { get; set; }
         public DbSet<Publicacion> Publicaciones { get; set; }
 
+        public DbSet<ComentarioPublicacion> ComentarioPublicacion { get; set; }
+
         public Contexto(DbContextOptions<Contexto> opciones) : base(opciones)
         {
 
