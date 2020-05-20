@@ -6,8 +6,12 @@ namespace CAPA_NEGOCIO.ENTIDADES
 {
    public class PublicacionDTO
     {
-        public int Id { get; set; }
-        public int Id_Producto { get; set; }
-        public int Id_Comentario { get; set; }
+
+        private int productoID;
+       
+
+        public int ProductoID { get => productoID; set => productoID = value; }
+      
+       
     }
 }
