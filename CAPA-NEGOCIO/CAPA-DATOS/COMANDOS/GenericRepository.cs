@@ -22,6 +22,13 @@ namespace CAPA_DATOS.COMANDOS
            contexto.SaveChanges();
         }
 
+        public T Agregar<T>(T entity) where T : class
+        {
+            contexto.Add(entity);
+            contexto.SaveChanges();
+            return entity;
+        }
+
         public void Delete<T>(T entity) where T : class
         {
             contexto.Set<T>().Remove(entity);
