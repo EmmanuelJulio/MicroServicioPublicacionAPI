@@ -12,6 +12,6 @@ namespace CAPA_NEGOCIO.ENTIDADES
 
        
         public string Comentarios { get => comentarios; set => comentarios = value; }
-        public DateTime Fecha { get => fecha; set => fecha = value; }
+        public DateTime Fecha { get => fecha; set => fecha = DateTime.Today; }
     }
 }

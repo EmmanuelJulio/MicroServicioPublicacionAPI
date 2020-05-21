@@ -45,7 +45,7 @@ namespace API_PUBLICACION
             services.AddTransient<IGenericRepository, GenericRepository>();
             services.AddTransient<IPublicacionService, PublicacionService>();
             services.AddTransient<IComentarioService, ComentarioService>();
-
+           
 
 
         }

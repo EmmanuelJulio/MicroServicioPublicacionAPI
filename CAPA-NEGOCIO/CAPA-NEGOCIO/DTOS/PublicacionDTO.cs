@@ -11,6 +11,8 @@ namespace CAPA_NEGOCIO.ENTIDADES
        
 
         public int ProductoID { get => productoID; set => productoID = value; }
+
+    
       
        
     }
